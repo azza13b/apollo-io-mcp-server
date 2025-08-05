@@ -80,6 +80,33 @@ npm start
 npm start -- --api-key=your-api-key
 
 # Run the SSE server with authentication
+### Using Docker Compose
+
+You can also run the server using Docker Compose:
+
+1. Copy the environment file and configure your API key:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your Apollo.io API key
+   ```
+
+2. Build and start the service:
+   ```bash
+   docker-compose up -d
+   ```
+
+3. The server will be available at `http://localhost:6969`
+
+4. To stop the service:
+   ```bash
+   docker-compose down
+   ```
+
+5. To view logs:
+   ```bash
+   docker-compose logs -f apollo-mcp-server
+   ```
+
 npx mcp-proxy-auth node dist/index.js
 ```
 

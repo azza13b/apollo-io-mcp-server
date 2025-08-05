@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  apollo-mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6969:8080"
+    environment:
+      - APOLLO_IO_API_KEY=${APOLLO_IO_API_KEY}
+      - NODE_ENV=production
+    env_file:
+      - .env
+    restart: unless-stopped
+    container_name: apollo-mcp-server
+    networks:
+      - apollo-network
+
+networks:
+  apollo-network:
+    driver: bridge
