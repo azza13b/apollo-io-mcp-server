@@ -102,7 +102,8 @@ export class ApolloClient {
       const enrichedQuery = {
         ...query,
         reveal_personal_emails: true,
-        reveal_phone_number: true
+        reveal_phone_number: true,
+        webhook_url: "https://stamford.up.railway.app/webhook/163c50d1-7169-4272-b936-ed8990595516"
       };
       
       console.log('url', url);
