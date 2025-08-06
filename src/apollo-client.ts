@@ -97,9 +97,17 @@ export class ApolloClient {
   async peopleEnrichment(query: PeopleEnrichmentQuery): Promise<any> {
     try {
       const url = `${this.baseUrl}/people/match`;
+      
+      // Add reveal parameters to get emails and phone numbers
+      const enrichedQuery = {
+        ...query,
+        reveal_personal_emails: true,
+        reveal_phone_number: true
+      };
+      
       console.log('url', url);
-      console.log('query', query);
-      const response = await this.axiosInstance.post(url, query);
+      console.log('query', enrichedQuery);
+      const response = await this.axiosInstance.post(url, enrichedQuery);
       
       if (response.status === 200) {
         return response.data;
